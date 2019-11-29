@@ -1,0 +1,56 @@
+@media screen and (max-width: 650px) {
+    .topbar {
+        position: absolute;
+        max-width: 980px;
+        min-width: 200px;
+        left: 1%;
+        width: 98%;
+    }
+    /*---------------- sidebar -------------*/
+    .sidebar {
+        left: 0%;
+        width: 100%;
+        height: 270px;
+        top: 45px;
+    }
+    .background_sb {
+        border-radius: 4%;
+    }
+    .logo {
+        left: -300px;
+    }
+    .menu_sb {
+        left: 0px;
+        width: 50%;
+        top: 5px;
+        text-align: center;
+    }
+    .A_menu_sb {
+        width: 100%;
+    }
+    /*------------ sidebar END -------------*/
+    .profilebar {
+        height: 0px;
+        width: 0px;
+        top: -100px;
+    }
+    .content_block {
+        padding: 0px;
+        line-height: 0px;
+        max-width: 980px;
+        min-width: 200px;
+        left: 0%;
+        width: 98%;
+        top: 320px;
+    }
+    .search {
+        left: 15%;
+        width: 60%;
+    }
+    .search_button {
+        width: 20%;
+    }
+    .add_AD {
+        left: 115%;
+    }
+}

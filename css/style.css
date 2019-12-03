@@ -338,11 +338,11 @@
         width: 100%;
         height: 100%;
         left: -100%;
-        margin: auto;
         max-width: 550px;
         min-height: 600px;
         max-height: 640px;
         border-radius: 30px;
+        margin: 1% 0 0 0;
         background: linear-gradient(180deg, #A9DE55 0%, rgb(124, 167, 57) 100%);
     }
     
@@ -350,7 +350,7 @@
         width: 100%;
         height: 100%;
         position: absolute;
-        padding: 90px 70px 50px 70px;
+        padding: 50px 70px 50px 70px;
     }
     
     .sign-in {

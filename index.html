@@ -9,19 +9,24 @@
     <link rel="stylesheet" href="./css/reset.css">
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-
+    <script src="https://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
     <script src="./scripts/static.js"></script>
     <script src="./scripts/header.js"></script>
+    <link rel="stylesheet" href="./css/media.css">
 
     <title>StudyFree</title>
 </head>
 
 <body>
     <div class="page-container">
+
+        <!--ContentBlock Start-->
         <div class="content_block">
 
 
         </div>
+        <!--ContentBlock End-->
+        <!--Header Start-->
         <div class="topbar ">
 
             <div class="background_tb">
@@ -29,13 +34,15 @@
                 <div class="search">
                     <button class="add_AD text">
                         Добавить объявление
-                        <img src="./img/add_advert.png" class="ad_advert_img">
+                        <img src="/img/add_advert.png" class="ad_advert_img">
                     </button>
                     <button class="search_button">
-                        <img src="./img/search_icon.png">
+                        <img src="/img/search_icon.png">
                     </button>
                     <input class="search_line">
                 </div>
+
+                <!-- @auth-->
                 <div class="profilebar">
                     <div class="block_message">
                         <button class="message_but">
@@ -47,14 +54,23 @@
                     </div>
                     <button class="avatar"></button>
                 </div>
+                <!-- @auth END-->
+                <!-- NO auth-->
+                <button class="but_sign_in text">
+                    Войти
+                    <img src="/img/IconSignIn.png" alt="" class="ad_advert_img">
+                </button>
+                <!-- NO auth END-->
             </div>
 
         </div>
+        <!--Header End-->
+        <!--Sidebar Start-->
         <div class="sidebar">
             <div class="background_sb">
                 <div class="effect_sb"></div>
 
-                <img src="/img/img_logo.png" class="logo">
+                <img src="/img/white_logo.png" class="logo">
 
                 <ul class="menu_sb">
 
@@ -67,11 +83,69 @@
             </div>
 
         </div>
+        <!--Sidebar End-->
+        <!--Footer Start-->
         <div class="footer">
-            <img id="logofooter" src="./img/logo_futer.png" alt="logo StudyFree">
+            <img id="logofooter" src="/img/logo_futer.png" alt="logo StudyFree">
         </div>
+        <!--Footer End-->
     </div>
+    <!--SIGN IN start-->
+    <div class="login_bg"></div>
+    <!--BLUR-->
 
+    <div class="login-wrap text">
+        <div class="login-html text">
+            <input id="tab-1" type="radio" name="tab" class="sign-in text" checked><label for="tab-1" class="tab">ВХОД</label>
+            <input id="tab-2" type="radio" name="tab" class="sign-up text"><label for="tab-2" class="tab">РЕГИСТРАЦИЯ</label>
+            <div class="login-form">
+                <div class="sign-in-htm  text">
+                    <div class="group">
+                        <label for="user" class="label text">Username</label>
+                        <input id="user" type="text" class="input text">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label text">Password</label>
+                        <input id="pass" type="password" class="input text" data-type="password">
+                    </div>
+                    <div class="group">
+                        <input id="check" type="checkbox" class="check text" checked>
+                        <label for="check"><span class="icon text"></span> Keep me Signed in</label>
+                    </div>
+                    <div class="group">
+                        <button class="button text">ВОЙТИ</button>
+                    </div>
+                    <div class="hr"></div>
+
+                </div>
+                <div class="sign-up-htm text">
+                    <div class="group text">
+                        <label for="user" class="label text">Username</label>
+                        <input id="user" type="text" class="input text">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label text">Password</label>
+                        <input id="pass" type="password" class="input text" data-type="password">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label text">Repeat Password</label>
+                        <input id="pass" type="password" class="input text" data-type="password">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label text">Email Address</label>
+                        <input id="pass" type="text" class="input text">
+                    </div>
+                    <div class="group">
+                        <button class="button text">ЗАРЕГИСТРИРОВАТЬСЯ</button>
+                    </div>
+                    <div class="hr"></div>
+                    <div class="foot-lnk">
+
+                    </div>
+                </div>
+            </div>
+
+            <!--SIGN IN END-->
 
 </body>
 

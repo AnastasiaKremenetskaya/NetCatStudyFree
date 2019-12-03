@@ -26,7 +26,16 @@
         text-align: center;
     }
     .A_menu_sb {
+        position: absolute;
         width: 100%;
+        text-decoration: none;
+        color: white;
+        height: 50px;
+        padding-left: 30%;
+        padding-right: 30%;
+        border-radius: 20px;
+        background-color: rgba(0, 0, 0, 0);
+        transition: all 0.3s ease;
     }
     /*------------ sidebar END -------------*/
     .profilebar {
@@ -45,12 +54,21 @@
     }
     .search {
         left: 15%;
-        width: 60%;
+        width: 55%;
     }
     .search_button {
         width: 20%;
     }
     .add_AD {
-        left: 115%;
+        left: 112%;
+    }
+    .but_sign_in {
+        padding: 0px;
+        right: 2%;
+        width: 30px;
+        color: rgba(255, 255, 255, 0);
+    }
+    .login-wrap {
+        left: 0%;
     }
 }

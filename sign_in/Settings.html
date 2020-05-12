@@ -1,0 +1,30 @@
+<?php
+    $errorSignIn = '';
+    global $core;
+    if(isset($_POST['signInBut']))
+    {
+        $login = $_POST['login'];
+        $password = $_POST['password'];
+
+        $login = addslashes(htmlspecialchars($login));
+        $password = addslashes(htmlspecialchars($password));
+        $password = md5($password);
+        $token = '';
+        //$user = $nc_core->db->last_result;
+        //foreach($user as $r)
+        //{
+          //  $token = $r->token;
+       // }
+	    $usID = $nc_core->db->get_var("SELECT User_ID FROM User WHERE login = \"{$login}\" and Password = \"{$password}\" limit 1");
+        $nc_core->user->authorize_by_id($usID);
+        if(!empty($AUTH_USER_ID))
+        {
+            $nc_core->cookie->set('_TKN', $current_user['Token'], time()+(3600*24*30), true);
+            header("Location: /");
+        }
+        else
+        {
+            $errorSignIn = 'Неверный логин или пароль.';
+        }
+    }
+?>

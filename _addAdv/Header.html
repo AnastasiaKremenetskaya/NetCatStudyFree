@@ -1,0 +1,123 @@
+%Header
+<!-- Title Start -->
+		<!-- Body Start -->	
+		<main class="browse-section">				
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8">						
+						<div class="main-heading bids_heading">
+							<h2>Подать объявление</h2>
+							<div class="line-shape1">
+								<img src="images/line.svg" alt="">
+							</div>
+						</div>
+						<div class="post501">
+							<form method="post" action="">
+								<div class="row">
+									<div class="col-lg-12">
+										<div class="requires">
+											Основное
+										</div>
+									</div>	
+									<div class="col-lg-12">
+										<div class="form-group">
+											<label class="label15">Название*</label>
+											<input type="text" class="job-input" id="title" name="title" placeholder="Введите название объявления">
+										</div>
+										<div class="form-group">
+											<label class="label15">Описание*</label>
+											<textarea class="textarea_input" id="subtitle" name="subtitle" placeholder="Введите описание объявления"></textarea>
+										</div>
+									</div>
+									<div class="col-lg-12">
+										<div class="requires">
+											Дополнительная информация
+										</div>
+									</div>															
+									<div class="col-lg-6">
+										<div class="form-group">
+											<label class="label15">Направление*</label>
+											<select class="form-control" tabindex="-1" name="category" id="category">
+												<option value="" disabled selected hidden>Выберите категорию</option>
+												<?php 
+													$categ = $nc_core->db->get_results("SELECT Subdivision_Name AS Name, Subdivision_ID AS ID FROM Subdivision WHERE Parent_Sub_ID = 13",ARRAY_A);
+													for($i=0;$i<count($categ);$i++)
+													{
+												?>
+														<option  value="<?=$categ[$i]['ID']?>"><?=$categ[$i]['Name']?></option>
+												<?php 
+													}
+												?>
+											</select>
+										</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="form-group">
+											<div id="subCateg">
+											</div>
+											
+										</div>
+									</div>
+									
+									
+									<div class="col-lg-6">
+										<div class="form-group">
+											<div class="smm_input">
+												<input type="number" class="job-input" name="price" id="price" placeholder="Цена">
+												<div class="mix_max">RUB</div>															
+											</div>															
+										</div>															
+									</div>
+									
+									<div class="col-lg-12">
+										<div class="form-group">
+											<label class="label15">Адрес*</label>
+											<div class="smm_input">
+												<input type="text" class="job-input" name="address" id="address" placeholder="Введите адрес">
+												<div class="loc_icon"><i class="fas fa-map-marker-alt"></i></div>															
+											</div>															
+										</div>															
+									</div>															
+									
+									<div class="col-lg-12">
+										<div class="form-group">
+											<label class="label15">Файлы*</label>
+											<div class="image-upload-wrap1">
+												<input class="file-upload-input1" id="file2" type="file" onchange="readURL(this);" accept="image/*">
+												<div class="drag-text1">
+													Загрузить файлы
+												</div>																	
+											</div>
+											<p class="upload_dt">jpg, jpeg, png, pdf, doc, docx, xlsm, xlsx</p>
+										</div>
+									</div>
+									<div class="col-lg-12">
+										<button class="post_jp_btn" name="postBtn" id="postBtn" type="button">Подать объявление</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="main-heading bids_heading pjfaq80">
+							<h2>FAQ</h2>
+						</div>
+						<div class="jp_faq">
+							<div class="jp_faq_item">
+								<h4>01. Is there a fee to post a project?</h4>
+								<p>There are pricing plans monthly and yearly for project on Jobby. It is a paid service that we offer bith for the employer and the freelancer.</p>
+							</div>
+							<div class="jp_faq_item">
+								<h4>02. How do I find freelancers for my project?</h4>
+								<p>Posting a project on Jobby will get your project in front of the most qualified freelancers and agencies by bids. You will then get bids for the project with the applicant’s details and reasons why they are the best fit for the projects. You can also search for freelancers and invite them to apply.</p>
+							</div>
+							<div class="jp_faq_item">
+								<h4>03. How do I pay freelancers & agencies?</h4>
+								<p>You’re free to pay your freelancer and agencies. you can pay automatically for their work through Paypal, Payoneer, or  (which allows you to pay via credit card, debit card).</p>
+							</div>
+						</div>
+					</div>																																						
+				</div>
+			</div>					
+		</main>
+		<!-- Body End -->

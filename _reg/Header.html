@@ -1,0 +1,105 @@
+%Header
+<!-- Title Start -->
+<div class="title-bar">			
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<ol class="title-bar-text">
+							<li class="breadcrumb-item"><a href="/">Домой</a></li>
+							<li class="breadcrumb-item active" style="color: #7eba21;" aria-current="page">Регистрация</li>
+						</ol>
+					</div>		
+				</div>		
+			</div>		
+		</div>
+		<!-- Body Start -->	
+		<main class="browse-section">				
+			<div class="container">
+				<div class="row justify-content-md-center">					
+					<div class="col-md-6">
+						<div class="lg_form">
+							<div class="main-heading">
+								<h2>Регистрация</h2>
+								<div class="line-shape1">
+									<img src="images/line.svg" alt="">
+								</div>
+							</div>
+                            
+                            <form method="post" action="">
+                              <div class="form-group">
+                                  <label class="label15">Логин*</label>
+                                  <?php
+                                      if(empty($usedLogin))
+                                      {
+                                  ?>
+                                  <input type="login" required class="job-input" placeholder="Введите логин" name="login">
+                                  <?php } ?>
+                                  <?php if(!empty($usedLogin)) { ?>
+									<input type="login" required class="job-input errorInputReg alert alert-danger" placeholder="Введите логин" name="login">
+                                     <div class="text-error-reg">
+                                        <?=$usedLogin?>
+                                     </div>
+                                   <?php } ?>
+                              </div>
+                              <div class="form-group">
+                                  <label class="label15">Email*</label>
+								  <?php if(empty($usedEmail)) { ?>
+                                  <input type="email" required  class="job-input" placeholder="Введите Email" name="email">
+								  <?php } ?>
+                                  <?php if(!empty($usedEmail)) { ?>
+								  <input type="email" required  class="job-input errorInputReg alert alert-danger" placeholder="Введите Email" name="email">
+                                    <div class="text-error-reg">
+                                       <?=$usedEmail?>
+                                    </div>
+                                  <?php } ?>
+                              </div>
+                              <div class="form-group">
+                                  <label class="label15">Пароль*</label>
+                                  <input type="password" required  class="job-input" placeholder="Введите пароль" name="password">
+                              </div>
+                              <div class="form-group">
+                                  <label class="label15">Подтверждение пароля*</label>
+								  <?php if(empty($errorNotSamePas)) { ?>
+                                  <input type="password" required  class="job-input" placeholder="Повторите пароль" name="repPas">
+								  <?php } ?>
+								  <?php if(!empty($errorNotSamePas)){?>
+								  <input type="password" required  class="job-input errorInputReg alert alert-danger" placeholder="Повторите пароль" name="repPas">
+								  <div class="text-error-reg">
+									<?= $errorNotSamePas?>
+								  </div>
+								  <?php } ?>
+                              </div>
+                              <div class="form-group">
+                                  <label class="label15">Телефон*</label>
+								  <?php if(empty($usedPhone)) { ?>
+                                  <input type="text" id="phNu" required  class="job-input" placeholder="Введите телефон" name="phone">
+								  <?php } ?>
+                                  <?php if(!empty($usedPhone)) { ?>
+								  <input type="text" id="phNu" required  class="job-input errorInputReg alert alert-danger" placeholder="Введите телефон" name="phone">
+                                    <div class="text-error-reg">
+                                       <?=$usedPhone?>
+                                    </div>
+                                  <?php } ?>
+                              </div>
+                              <div class="ui checkbox apply_check check_out checked">
+                                  <input type="checkbox" tabindex="0" class="hidden" name="confirm">
+                                  <label style="color:#242424 !important;">Я принимаю условия лецинзионного соглашения</label>
+								  <?php if(empty($confirm)) { ?>
+                                    <div>
+                                       <?=$errorConfirm?>
+                                    </div>
+                                  <?php } ?>
+                              </div>
+                              
+                              <!--<a class="lr_btn" href="/confirm/">Зарегистрироваться</a>-->
+                              <input type="submit" class="lr_btn" value="Зарегистрироваться" name="reg">
+                              <div class="done140">
+                                  Уже есть аккаунт?<a href="/sign_In/">Войти сейчас<i class="fas fa-angle-double-right"></i></a>
+                              </div>
+                           </form>
+						</div>						
+					</div>																																										
+				</div>				
+			</div>					
+		</main>
+		<!-- Body End -->

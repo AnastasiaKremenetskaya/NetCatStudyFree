@@ -1,0 +1,24 @@
+<?php
+
+$pathClassCore = $_SERVER["DOCUMENT_ROOT"]."/core/classes/Core.php";
+include $pathClassCore;
+
+global $core;
+$core = new Core();
+
+if($_GET['act']=='signIn')
+    header("Location: /signIn/");
+
+if($_GET['act']=='exit')
+{
+		UnAuthorize();
+       $nc_core->cookie->remove("_TKN");
+header("Location: /");
+}
+
+if(!empty($_COOKIE["_TKN"]))
+{
+$user = $nc_core->db->get_results("SELECT * FROM User WHERE token = \"{$_COOKIE["_TKN"]}\"", ARRAY_A);
+$core->setUser($user);
+}
+?>

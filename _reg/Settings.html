@@ -1,0 +1,90 @@
+<?php
+$usedPhone='';
+$usedEmail='';
+$usedLogin='';
+$errorConfirm = '';
+$errorNotSamePas = '';
+
+global $core;
+
+
+	if(isset($_POST['reg']))
+	{
+			$token = $core->generateToken();
+			$login = $_POST['login'];
+			$email = $_POST['email'];
+			$password = $_POST['password'];
+			$repPas = $_POST['repPas'];
+			$phone = $_POST['phone'];
+			$conf = $_POST['confirm'];
+			
+			$login = addslashes(htmlspecialchars($login));
+			$email = addslashes(htmlspecialchars($email));
+			$password = addslashes(htmlspecialchars($password));
+			$repPas = addslashes(htmlspecialchars($repPas));
+			$phone = addslashes(htmlspecialchars($phone));
+			$regUser = true;
+      
+			  if(empty($conf))
+			  {
+				$errorConfirm='Принятие соглашения обязательно. Примите его и повторите попытку регистрации.';
+				$regUser = false;
+			  }
+			  
+			  $result = $nc_core->db->query("SELECT User_ID FROM User WHERE login=\"{$login}\"");
+			  if(!empty($result))
+			  {
+				  $usedLogin = 'Такой логин уже занят';
+				  $regUser = false;
+			  }
+				  
+			  $result = $nc_core->db->query("SELECT User_ID FROM User WHERE email=\"{$email}\"");  
+			  if(!empty($result)) 
+			  {
+				  $usedEmail = 'Данный Email уже привязан к другому аккаунту';
+				  $regUser = false;
+			  }
+				 
+			  $result = $nc_core->db->query("SELECT User_ID FROM User WHERE phoneNumber=\"{$phone}\"");
+			  if(!empty($result)) 
+			  {
+				  $usedPhone = 'Данный телефон уже привязан к другому аккаунту';
+				  $regUser = false;
+			  }
+			  
+			
+			if($password != $repPas)
+			{
+				$errorNotSamePas = 'Введенные пароли не совпадают';
+				$regUser = false;
+			}
+			
+			if($regUser)
+			{
+				$_SESSION['login'] = $login;
+				  $_SESSION['email'] = $email;
+				  $_SESSION['password'] = $password;
+				  $_SESSION['phone'] = $phone;
+				  $_SESSION['conf'] = $conf;
+				  $_SESSION['token'] = $token;
+                  
+                  $_SESSION['confirmKey'] = '123412';
+                  
+                  $to        = "merkulovvladislav2000@gmail.com";
+                  $from      = "admin@mailshark.ru";
+                  $reply     = "merkulovvladislav2000@gmail.com";
+                  $from_name = "admin";
+                  $subject   = "Код подтверждения";
+                  $text      = "<b>Ваш код подтверждения: {$_SESSION['confirmKey']}</b>";
+                  
+                  $mailer = new CMIMEMail();
+                  
+                  $mailer->mailbody(strip_tags($text), $text);
+                  $mailer->send($to, $from, $reply, $subject, $from_name);
+                  
+                  
+                  
+				header("Location:http://sf.mailshark.ru/confirm_reg ");
+			}
+	}
+?>

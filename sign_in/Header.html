@@ -1,0 +1,76 @@
+%Header
+<!-- Title Start -->
+		<div class="title-bar">			
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<ol class="title-bar-text">
+							<li class="breadcrumb-item"><a href="/">Домой</a></li>
+							<li class="breadcrumb-item active" style="color: #7eba21;" aria-current="page">Вход</li>
+						</ol>
+					</div>		
+				</div>		
+			</div>		
+		</div>
+		<!-- Title Start -->
+		<!-- Body Start -->	
+		<main class="browse-section">				
+			<div class="container">
+				<div class="row justify-content-md-center">					
+					<div class="col-md-6">
+						<div class="lg_form">
+							<div class="main-heading">
+								<h2>Вход</h2>
+								<div class="line-shape1">
+									<img src="<?= $nc_parent_template_folder_path; ?>assets/images/line.png" alt="">
+								</div>
+							</div>
+							<form method="post" action="">
+                                <?php if(empty($errorSignIn)) { ?>
+								<div class="form-group">
+									<label class="label15">Логин*</label>
+									<input type="text" name="login" class="job-input" placeholder="Введите логин">
+								</div>
+								<div class="form-group">
+									<label class="label15">Пароль*</label>
+									<input type="password" name="password" class="job-input" placeholder="Введите пароль">
+								</div>
+                                <div class="row">
+                                    <button class="lr_btn" type="submit" name="signInBut" >Войти</button>
+                                </div>
+								<?php
+                                }
+                                if(!empty($errorSignIn)) { ?>
+                                <div class="form-group">
+									<label class="label15">Логин*</label>
+									<input type="text" name="login" class="job-input alert alert-danger" placeholder="Введите логин">
+								</div>
+								<div class="form-group">
+									<label class="label15">Пароль*</label>
+									<input type="password" name="password" class="job-input alert alert-danger" placeholder="Введите пароль">
+								</div>
+                                
+								<div class="row">
+									<div class="form-group mb-0 mr-3 ml-3 mt-4 text-error-reg">
+										<?=$errorSignIn?>
+									</div>
+										<button class="lr_btn mt-1 mr-3 ml-3" type="submit" name="signInBut" >Войти</button>
+								</div>
+								<?php }
+								?>
+								
+							</form>
+							<div class="done145">
+								<div class="done146">
+									Нужен аккаунт?<a href="/regist/">Зарегистрироваться<i class="fas fa-angle-double-right"></i></a>
+								</div>
+								<div class="done147">
+									<a href="forgot_password.html">Забыли пароль?</a>
+								</div>
+							</div>
+						</div>						
+					</div>																																										
+				</div>				
+			</div>					
+		</main>
+		<!-- Body End -->

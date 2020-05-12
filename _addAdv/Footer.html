@@ -1,0 +1,32 @@
+%Footer
+<script>
+	category.onchange = function()
+	{
+		$.post('/core/scripts/loadSubCategories.php', {'SubID': this.value},
+        function(data) {
+        $('#subCateg').html(data);
+        });
+	}
+
+postBtn.onclick = function()
+	{
+		<?php
+			if(!empty($_POST['postBtn']))
+			{
+				$title = addslashes(htmlspecialchars($_POST['title']));
+				$subtitle = addslashes(htmlspecialchars($_POST['subtitle']));
+				$subCategory = 18;//$_POST['subCategory'];
+				$price = (int)($_POST['price']);
+				$address = addslashes(htmlspecialchars($_POST['address']));
+				if(!empty($price) && !empty($title) && !empty($subtitle) && !empty($subCategory) && !empty($address))
+				{
+					$nc_core->db->query("INSERT INTO Message7 (title,description,price,status,userId,deadline,categoryId) VALUES (\'{$title}\',
+						\'{$subtitle}\', \'{$price}\', 1, \'{$current_user['User_ID']}\', time(), {$subCategory})");
+				}
+			}
+		?>
+		
+	}
+</script>
+
+

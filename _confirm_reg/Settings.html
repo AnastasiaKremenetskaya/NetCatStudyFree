@@ -1,0 +1,16 @@
+<?php  
+if(isset($_POST['confBut']))
+{
+  $login = $_SESSION['login'];
+  $email = $_SESSION['email'];
+  $password = $_SESSION['password'];
+  $conf = $_SESSION['conf'];
+  $phone = $_SESSION['phone'];
+  $token = $_SESSION['token'];
+  if(true)
+  {
+    $nc_core->user->add(array('Login' => $login, 'Token' => $token, 'Email' => $email, 'phoneNumber' => $phone),2, $password, array('Checked' => '1'));
+    header("Location: /");
+  }
+}
+?>
